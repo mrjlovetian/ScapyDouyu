@@ -12,6 +12,7 @@ class DouyuSpider(scrapy.Spider):
     start_urls = [base_url + str(offset)]
 
     def parse(self, response):
+        print('begin start ---------------------%s'%response)
         douyu_data = json.loads(response.body)['data']
         for data in douyu_data:
             item = DouyuItem()
